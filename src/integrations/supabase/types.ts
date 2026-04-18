@@ -14,16 +14,261 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      articles: {
+        Row: {
+          body: string | null
+          category: string | null
+          cover_url: string | null
+          created_at: string
+          excerpt: string | null
+          id: string
+          published: boolean | null
+          read_time: string | null
+          slug: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          body?: string | null
+          category?: string | null
+          cover_url?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          published?: boolean | null
+          read_time?: string | null
+          slug: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          body?: string | null
+          category?: string | null
+          cover_url?: string | null
+          created_at?: string
+          excerpt?: string | null
+          id?: string
+          published?: boolean | null
+          read_time?: string | null
+          slug?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      clips: {
+        Row: {
+          city: string | null
+          created_at: string
+          id: string
+          likes: number | null
+          player_handle: string
+          status: string
+          thumbnail_url: string | null
+          title: string
+          updated_at: string
+          user_id: string
+          video_url: string | null
+          views: number | null
+        }
+        Insert: {
+          city?: string | null
+          created_at?: string
+          id?: string
+          likes?: number | null
+          player_handle: string
+          status?: string
+          thumbnail_url?: string | null
+          title: string
+          updated_at?: string
+          user_id: string
+          video_url?: string | null
+          views?: number | null
+        }
+        Update: {
+          city?: string | null
+          created_at?: string
+          id?: string
+          likes?: number | null
+          player_handle?: string
+          status?: string
+          thumbnail_url?: string | null
+          title?: string
+          updated_at?: string
+          user_id?: string
+          video_url?: string | null
+          views?: number | null
+        }
+        Relationships: []
+      }
+      products: {
+        Row: {
+          badge: string | null
+          brand: string
+          created_at: string
+          description: string | null
+          featured: boolean | null
+          id: string
+          image_url: string | null
+          level: string | null
+          name: string
+          old_price: number | null
+          price: number
+          slug: string
+          stock: number | null
+          style: string | null
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          badge?: string | null
+          brand: string
+          created_at?: string
+          description?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          level?: string | null
+          name: string
+          old_price?: number | null
+          price: number
+          slug: string
+          stock?: number | null
+          style?: string | null
+          type: string
+          updated_at?: string
+        }
+        Update: {
+          badge?: string | null
+          brand?: string
+          created_at?: string
+          description?: string | null
+          featured?: boolean | null
+          id?: string
+          image_url?: string | null
+          level?: string | null
+          name?: string
+          old_price?: number | null
+          price?: number
+          slug?: string
+          stock?: number | null
+          style?: string | null
+          type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          city: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          level: string | null
+          updated_at: string
+          user_id: string
+          username: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          city?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          level?: string | null
+          updated_at?: string
+          user_id: string
+          username?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          city?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          level?: string | null
+          updated_at?: string
+          user_id?: string
+          username?: string | null
+        }
+        Relationships: []
+      }
+      tournaments: {
+        Row: {
+          category: string
+          city: string
+          created_at: string
+          date: string
+          description: string | null
+          id: string
+          name: string
+          register_url: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          city: string
+          created_at?: string
+          date: string
+          description?: string | null
+          id?: string
+          name: string
+          register_url?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          city?: string
+          created_at?: string
+          date?: string
+          description?: string | null
+          id?: string
+          name?: string
+          register_url?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +395,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator", "user"],
+    },
   },
 } as const
