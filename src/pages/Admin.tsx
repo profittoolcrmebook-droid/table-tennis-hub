@@ -194,7 +194,4 @@ const ClipsAdmin = () => {
   );
 };
 
-// Variable Label needed por el linter pero no usada visiblemente
-void Label;
-
 export default Admin;
