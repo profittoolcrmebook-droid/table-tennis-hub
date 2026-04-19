@@ -30,6 +30,11 @@ export default {
           glow: "hsl(var(--brand-glow))",
           deep: "hsl(var(--brand-deep))",
         },
+        calipso: {
+          DEFAULT: "hsl(var(--calipso))",
+          foreground: "hsl(var(--calipso-foreground))",
+          glow: "hsl(var(--calipso-glow))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
