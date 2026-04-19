@@ -4,7 +4,7 @@ import { Upload, Users } from "lucide-react";
 
 export const CommunityCTA = () => {
   return (
-    <section className="relative overflow-hidden py-20 md:py-28">
+    <section className="relative overflow-hidden py-12 md:py-16">
       <div className="container-px mx-auto max-w-[1400px]">
         <div className="relative overflow-hidden rounded-3xl border border-brand/30 bg-gradient-to-br from-brand-deep via-brand to-brand-glow p-10 md:p-16">
           <div className="absolute -right-20 -top-20 size-72 rounded-full bg-brand-foreground/10 blur-3xl" />

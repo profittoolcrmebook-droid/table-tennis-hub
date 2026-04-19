@@ -37,7 +37,7 @@ export const products: Product[] = [
       { label: "Tipo", value: "Pip-in / Tacky" },
     ],
     rating: { speed: 9, spin: 10, control: 9 },
-    shipping: "Despacho 24-48hrs Santiago",
+    shipping: "Despacho 10-20 días (importación directa)",
   },
   {
     id: "2", slug: "loki-arthur-europe", name: "Loki Arthur Europe", brand: "Loki",
@@ -50,7 +50,7 @@ export const products: Product[] = [
       { label: "Tipo", value: "Tensor" },
     ],
     rating: { speed: 10, spin: 9, control: 8 },
-    shipping: "Despacho 2-4 días Chile",
+    shipping: "Despacho 10-20 días (importación directa)",
   },
   {
     id: "3", slug: "butterfly-viscaria", name: "Butterfly Viscaria", brand: "Butterfly",
@@ -63,7 +63,7 @@ export const products: Product[] = [
       { label: "Velocidad", value: "OFF" },
     ],
     rating: { speed: 9, spin: 8, control: 9 },
-    shipping: "Despacho 24-48hrs Santiago",
+    shipping: "Despacho 10-20 días (importación directa)",
   },
   {
     id: "4", slug: "stiga-clipper-wood", name: "Stiga Clipper Wood", brand: "Stiga",
@@ -75,7 +75,7 @@ export const products: Product[] = [
       { label: "Velocidad", value: "OFF+" },
     ],
     rating: { speed: 10, spin: 7, control: 7 },
-    shipping: "Despacho 2-4 días Chile",
+    shipping: "Despacho 10-20 días (importación directa)",
   },
   {
     id: "5", slug: "kit-pingponghub-starter", name: "Kit Starter PingPongHub", brand: "PingPongHub",
@@ -88,7 +88,7 @@ export const products: Product[] = [
       { label: "Funda", value: "Incluida" },
     ],
     rating: { speed: 6, spin: 6, control: 9 },
-    shipping: "Despacho 24-48hrs Santiago",
+    shipping: "Despacho 10-20 días (importación directa)",
   },
   {
     id: "6", slug: "nittaku-premium-3star", name: "Nittaku Premium 3★ (3u)", brand: "Nittaku",
@@ -101,7 +101,7 @@ export const products: Product[] = [
       { label: "Pack", value: "3 unidades" },
     ],
     rating: { speed: 8, spin: 8, control: 9 },
-    shipping: "Despacho 24-48hrs Santiago",
+    shipping: "Despacho 10-20 días (importación directa)",
   },
   {
     id: "7", slug: "tibhar-evolution-mxp", name: "Tibhar Evolution MX-P", brand: "Tibhar",
@@ -113,7 +113,7 @@ export const products: Product[] = [
       { label: "Tipo", value: "Tensor" },
     ],
     rating: { speed: 9, spin: 10, control: 8 },
-    shipping: "Despacho 3-5 días Chile",
+    shipping: "Despacho 15-25 días (importación directa)",
   },
   {
     id: "8", slug: "yasaka-mark-v", name: "Yasaka Mark V", brand: "Yasaka",
@@ -125,7 +125,7 @@ export const products: Product[] = [
       { label: "Tipo", value: "Pip-in" },
     ],
     rating: { speed: 7, spin: 8, control: 9 },
-    shipping: "Despacho 2-4 días Chile",
+    shipping: "Despacho 10-20 días (importación directa)",
   },
   {
     id: "9", slug: "donic-waldner-senso", name: "Donic Waldner Senso V1", brand: "Donic",
@@ -137,7 +137,7 @@ export const products: Product[] = [
       { label: "Velocidad", value: "ALL+" },
     ],
     rating: { speed: 7, spin: 8, control: 9 },
-    shipping: "Despacho 3-5 días Chile",
+    shipping: "Despacho 15-25 días (importación directa)",
   },
   {
     id: "10", slug: "andro-rasanter-r47", name: "Andro Rasanter R47", brand: "Andro",
@@ -150,7 +150,7 @@ export const products: Product[] = [
       { label: "Tipo", value: "Tensor" },
     ],
     rating: { speed: 10, spin: 9, control: 7 },
-    shipping: "Despacho 3-5 días Chile",
+    shipping: "Despacho 15-25 días (importación directa)",
   },
   {
     id: "11", slug: "kit-pro-club", name: "Kit Pro Club PingPongHub", brand: "PingPongHub",
@@ -163,7 +163,7 @@ export const products: Product[] = [
       { label: "Extras", value: "6 pelotas + funda rígida" },
     ],
     rating: { speed: 9, spin: 9, control: 8 },
-    shipping: "Despacho 24-48hrs Santiago",
+    shipping: "Despacho 10-20 días (importación directa)",
   },
   {
     id: "12", slug: "kit-niños-junior", name: "Kit Junior", brand: "PingPongHub",
@@ -175,7 +175,7 @@ export const products: Product[] = [
       { label: "Edad", value: "6-12 años" },
     ],
     rating: { speed: 5, spin: 5, control: 9 },
-    shipping: "Despacho 24-48hrs Santiago",
+    shipping: "Despacho 10-20 días (importación directa)",
   },
 ];
 

@@ -11,7 +11,7 @@ export const LiveAndTournamentsSection = () => {
   const featuredMatch = liveMatches[0];
 
   return (
-    <section className="relative overflow-hidden py-20 md:py-28">
+    <section className="relative overflow-hidden py-12 md:py-16">
       <div className="absolute inset-0 -z-10">
         <img src={arenaBg} alt="" className="h-full w-full object-cover opacity-20" loading="lazy" width={1600} height={900} />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background" />

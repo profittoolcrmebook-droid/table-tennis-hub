@@ -6,7 +6,7 @@ import { compactNumber } from "@/lib/format";
 
 export const ArenaSection = () => {
   return (
-    <section className="relative py-20 md:py-28">
+    <section className="relative py-12 md:py-16">
       <div className="absolute inset-0 -z-10 bg-grid opacity-[0.04]" />
       <div className="container-px mx-auto max-w-[1400px]">
         <div className="mb-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
