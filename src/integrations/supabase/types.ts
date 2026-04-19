@@ -56,6 +56,36 @@ export type Database = {
         }
         Relationships: []
       }
+      categories: {
+        Row: {
+          created_at: string
+          id: string
+          markup_percent: number
+          name: string
+          slug: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          markup_percent?: number
+          name: string
+          slug: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          markup_percent?: number
+          name?: string
+          slug?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       clips: {
         Row: {
           city: string | null
@@ -101,20 +131,157 @@ export type Database = {
         }
         Relationships: []
       }
+      order_items: {
+        Row: {
+          created_at: string
+          id: string
+          order_id: string
+          product_id: string | null
+          product_image: string | null
+          product_name: string
+          product_slug: string
+          quantity: number
+          subtotal: number
+          unit_price: number
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          order_id: string
+          product_id?: string | null
+          product_image?: string | null
+          product_name: string
+          product_slug: string
+          quantity: number
+          subtotal: number
+          unit_price: number
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          order_id?: string
+          product_id?: string | null
+          product_image?: string | null
+          product_name?: string
+          product_slug?: string
+          quantity?: number
+          subtotal?: number
+          unit_price?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "order_items_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "order_items_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "products"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      orders: {
+        Row: {
+          address: string
+          city: string
+          created_at: string
+          currency: string
+          email: string
+          full_name: string
+          id: string
+          notes: string | null
+          payment_id: string | null
+          payment_provider: string
+          phone: string
+          preference_id: string | null
+          region: string
+          rut: string | null
+          shipping: number
+          status: string
+          subtotal: number
+          total: number
+          tracking_code: string | null
+          tracking_url: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          address: string
+          city: string
+          created_at?: string
+          currency?: string
+          email: string
+          full_name: string
+          id?: string
+          notes?: string | null
+          payment_id?: string | null
+          payment_provider?: string
+          phone: string
+          preference_id?: string | null
+          region: string
+          rut?: string | null
+          shipping?: number
+          status?: string
+          subtotal: number
+          total: number
+          tracking_code?: string | null
+          tracking_url?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          address?: string
+          city?: string
+          created_at?: string
+          currency?: string
+          email?: string
+          full_name?: string
+          id?: string
+          notes?: string | null
+          payment_id?: string | null
+          payment_provider?: string
+          phone?: string
+          preference_id?: string | null
+          region?: string
+          rut?: string | null
+          shipping?: number
+          status?: string
+          subtotal?: number
+          total?: number
+          tracking_code?: string | null
+          tracking_url?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       products: {
         Row: {
           badge: string | null
           brand: string
+          cost_usd: number | null
           created_at: string
           description: string | null
+          exchange_rate: number | null
           featured: boolean | null
           id: string
           image_url: string | null
+          images: Json | null
           level: string | null
+          markup_percent: number | null
           name: string
           old_price: number | null
           price: number
+          published: boolean
+          shipping_cost_usd: number | null
           slug: string
+          source_url: string | null
+          specs: Json | null
           stock: number | null
           style: string | null
           type: string
@@ -123,16 +290,24 @@ export type Database = {
         Insert: {
           badge?: string | null
           brand: string
+          cost_usd?: number | null
           created_at?: string
           description?: string | null
+          exchange_rate?: number | null
           featured?: boolean | null
           id?: string
           image_url?: string | null
+          images?: Json | null
           level?: string | null
+          markup_percent?: number | null
           name: string
           old_price?: number | null
           price: number
+          published?: boolean
+          shipping_cost_usd?: number | null
           slug: string
+          source_url?: string | null
+          specs?: Json | null
           stock?: number | null
           style?: string | null
           type: string
@@ -141,16 +316,24 @@ export type Database = {
         Update: {
           badge?: string | null
           brand?: string
+          cost_usd?: number | null
           created_at?: string
           description?: string | null
+          exchange_rate?: number | null
           featured?: boolean | null
           id?: string
           image_url?: string | null
+          images?: Json | null
           level?: string | null
+          markup_percent?: number | null
           name?: string
           old_price?: number | null
           price?: number
+          published?: boolean
+          shipping_cost_usd?: number | null
           slug?: string
+          source_url?: string | null
+          specs?: Json | null
           stock?: number | null
           style?: string | null
           type?: string

@@ -5,12 +5,14 @@ import { products } from "@/data/demo";
 import { formatCLP } from "@/lib/format";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, Truck, ShieldCheck, Zap } from "lucide-react";
+import { ChevronLeft, Truck, ShieldCheck, Zap, ShoppingCart } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
+import { useCart } from "@/contexts/CartContext";
 
 const ProductDetail = () => {
   const { slug } = useParams();
   const product = products.find(p => p.slug === slug);
+  const { add, open: openCart } = useCart();
   if (!product) {
     return (
       <SiteLayout>
@@ -61,7 +63,10 @@ const ProductDetail = () => {
               <p className="font-display text-5xl italic text-brand">{formatCLP(product.price)}</p>
             </div>
 
-            <Button variant="hero" size="xl" className="w-full sm:w-auto">Comprar ahora</Button>
+            <div className="flex flex-wrap gap-3">
+              <Button onClick={() => add({ id: product.id, slug: product.slug, name: product.name, brand: product.brand, price: product.price, image: product.image })} variant="hero" size="xl"><ShoppingCart className="size-4" />Añadir al carrito</Button>
+              <Button onClick={() => { add({ id: product.id, slug: product.slug, name: product.name, brand: product.brand, price: product.price, image: product.image }); openCart(); }} variant="hero-outline" size="xl">Comprar ahora</Button>
+            </div>
 
             <div className="grid grid-cols-3 gap-3 pt-2">
               <Stat label="Velocidad" value={product.rating.speed} />

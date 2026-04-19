@@ -1,7 +1,8 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X, User, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/contexts/CartContext";
 
 const links = [
   { to: "/equipamiento", label: "Equipamiento" },
@@ -15,6 +16,7 @@ export const SiteHeader = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { count, open: openCart } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -55,6 +57,18 @@ export const SiteHeader = () => {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            onClick={openCart}
+            aria-label="Abrir carrito"
+            className="relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary/60 text-foreground hover:bg-brand hover:text-brand-foreground transition-colors"
+          >
+            <ShoppingCart className="size-4" />
+            {count > 0 && (
+              <span className="absolute -top-1 -right-1 grid h-5 min-w-5 place-items-center rounded-full bg-brand px-1 text-[10px] font-bold text-brand-foreground">
+                {count > 99 ? "99+" : count}
+              </span>
+            )}
+          </button>
           <Button asChild variant="ghost-pill" size="sm" className="hidden sm:inline-flex">
             <Link to="/auth">
               <User className="size-4" /> Cuenta

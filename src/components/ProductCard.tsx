@@ -3,9 +3,19 @@ import { Product } from "@/data/demo";
 import { formatCLP } from "@/lib/format";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useCart } from "@/contexts/CartContext";
+import { ShoppingCart } from "lucide-react";
 
 export const ProductCard = ({ product }: { product: Product }) => {
   const variant = product.badge === "MÁS VENDIDO" ? "bestseller" : "stock";
+  const { add } = useCart();
+
+  const handleAdd = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    add({ id: product.id, slug: product.slug, name: product.name, brand: product.brand, price: product.price, image: product.image });
+  };
+
   return (
     <Link
       to={`/equipamiento/${product.slug}`}
@@ -42,7 +52,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
             )}
             <p className="font-display text-2xl italic text-foreground">{formatCLP(product.price)}</p>
           </div>
-          <Button variant="hero" size="sm" className="text-xs">Comprar ahora</Button>
+          <Button onClick={handleAdd} variant="hero" size="sm" className="text-xs"><ShoppingCart className="size-3" />Añadir</Button>
         </div>
       </div>
     </Link>
