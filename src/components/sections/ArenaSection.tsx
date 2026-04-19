@@ -67,7 +67,7 @@ export const ArenaSection = () => {
                       <p className="font-medium leading-tight">{r.player}</p>
                       <p className="text-[10px] text-muted-foreground">{r.city}</p>
                     </div>
-                    <span className="font-bebas text-base text-brand">{r.points}</span>
+                    <span className="font-bebas text-base text-calipso">{r.points}</span>
                     {r.trend === "up" && <TrendingUp className="size-3.5 text-success" />}
                     {r.trend === "down" && <TrendingDown className="size-3.5 text-destructive" />}
                     {r.trend === "same" && <Minus className="size-3.5 text-muted-foreground" />}
