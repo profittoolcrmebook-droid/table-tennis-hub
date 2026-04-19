@@ -6,7 +6,7 @@ import { useAuth, useIsAdmin } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+
 import { toast } from "sonner";
 import { Shield, Package, Film, ShoppingBag, Tag, PlusCircle } from "lucide-react";
 import { formatCLP } from "@/lib/format";
