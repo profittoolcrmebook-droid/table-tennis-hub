@@ -7,7 +7,7 @@ import { formatDateCL } from "@/lib/format";
 export const GuidesSection = () => {
   const featured = articles.slice(0, 3);
   return (
-    <section className="relative py-20 md:py-28">
+    <section className="relative py-12 md:py-16">
       <div className="container-px mx-auto max-w-[1400px]">
         <div className="mb-10 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div>

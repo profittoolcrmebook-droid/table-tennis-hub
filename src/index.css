@@ -23,6 +23,11 @@
     --brand-glow: 22 100% 60%;
     --brand-deep: 8 90% 45%;
 
+    /* Calipso flúor (acento secundario) */
+    --calipso: 174 90% 55%;
+    --calipso-foreground: 0 0% 4%;
+    --calipso-glow: 168 100% 60%;
+
     --primary: 14 100% 55%;
     --primary-foreground: 0 0% 100%;
 
