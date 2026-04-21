@@ -377,6 +377,57 @@ export type Database = {
         }
         Relationships: []
       }
+      rankings: {
+        Row: {
+          category: string
+          club: string | null
+          country: string | null
+          created_at: string
+          flag: string | null
+          id: string
+          photo_url: string | null
+          player_name: string
+          points: number | null
+          position: number
+          source_url: string | null
+          synced_at: string | null
+          trend: string | null
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          club?: string | null
+          country?: string | null
+          created_at?: string
+          flag?: string | null
+          id?: string
+          photo_url?: string | null
+          player_name: string
+          points?: number | null
+          position: number
+          source_url?: string | null
+          synced_at?: string | null
+          trend?: string | null
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          club?: string | null
+          country?: string | null
+          created_at?: string
+          flag?: string | null
+          id?: string
+          photo_url?: string | null
+          player_name?: string
+          points?: number | null
+          position?: number
+          source_url?: string | null
+          synced_at?: string | null
+          trend?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       tournaments: {
         Row: {
           category: string
