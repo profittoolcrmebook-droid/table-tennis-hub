@@ -101,8 +101,10 @@ export const ArenaSection = () => {
               <p className="text-sm">
                 Sube tu mejor punto y participa por una <span className="font-bold text-brand">Madera Butterfly Viscaria</span>.
               </p>
-              <Button variant="hero" size="sm" className="mt-4 w-full text-xs">
-                <Upload className="size-3" /> Subir mi jugada
+              <Button asChild variant="hero" size="sm" className="mt-4 w-full text-xs">
+                <Link to="/arena?upload=1">
+                  <Upload className="size-3" /> Subir mi jugada
+                </Link>
               </Button>
             </div>
           </aside>
