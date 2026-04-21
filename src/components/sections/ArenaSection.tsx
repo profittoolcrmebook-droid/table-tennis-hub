@@ -24,12 +24,12 @@ export const ArenaSection = () => {
           </Button>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[1.7fr_1fr]">
+        <div className="grid gap-6 lg:grid-cols-[1.7fr_1fr] lg:items-stretch">
           {/* Clips grid */}
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+          <div className="grid grid-cols-2 auto-rows-fr gap-4 md:grid-cols-3">
             {clips.slice(0, 6).map(c => (
-              <div key={c.id} className="group relative aspect-[3/4] overflow-hidden rounded-xl border border-border bg-card">
-                <img src={c.thumbnail} alt={c.title} loading="lazy" width={400} height={533} className="h-full w-full object-cover opacity-80 transition-all group-hover:opacity-100 group-hover:scale-105" />
+              <div key={c.id} className="group relative h-full min-h-[260px] overflow-hidden rounded-xl border border-border bg-card">
+                <img src={c.thumbnail} alt={c.title} loading="lazy" width={400} height={533} className="absolute inset-0 h-full w-full object-cover opacity-80 transition-all group-hover:opacity-100 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                 <div className="absolute inset-0 grid place-items-center opacity-0 transition-opacity group-hover:opacity-100">
                   <div className="grid size-14 place-items-center rounded-full bg-brand/90 text-brand-foreground shadow-glow">
