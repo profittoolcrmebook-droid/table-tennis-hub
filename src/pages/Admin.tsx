@@ -12,12 +12,13 @@ import { Shield, Package, Film, ShoppingBag, Tag, PlusCircle } from "lucide-reac
 import { formatCLP } from "@/lib/format";
 import { ProductImporter } from "@/components/admin/ProductImporter";
 import { OrdersAdmin } from "@/components/admin/OrdersAdmin";
+import { RankingsAdmin } from "@/components/admin/RankingsAdmin";
 
 interface DBProduct { id: string; slug: string; name: string; brand: string; type: string; price: number; published: boolean | null; }
 interface DBClip { id: string; title: string; status: string; player_handle: string; city: string | null; created_at: string; }
 interface DBCategory { id: string; slug: string; name: string; markup_percent: number; sort_order: number; }
 
-type Tab = "importar" | "productos" | "ordenes" | "clips" | "categorias";
+type Tab = "importar" | "productos" | "ordenes" | "clips" | "categorias" | "rankings";
 
 const Admin = () => {
   const { user, loading } = useAuth();
@@ -52,6 +53,7 @@ const Admin = () => {
     { k: "productos", l: "Productos", i: <Package className="size-3" /> },
     { k: "ordenes", l: "Órdenes", i: <ShoppingBag className="size-3" /> },
     { k: "categorias", l: "Categorías", i: <Tag className="size-3" /> },
+    { k: "rankings", l: "Rankings", i: <Shield className="size-3" /> },
     { k: "clips", l: "Clips", i: <Film className="size-3" /> },
   ];
 
@@ -78,6 +80,7 @@ const Admin = () => {
           {tab === "productos" && <ProductsList />}
           {tab === "ordenes" && <OrdersAdmin />}
           {tab === "categorias" && <CategoriesAdmin />}
+          {tab === "rankings" && <RankingsAdmin />}
           {tab === "clips" && <ClipsAdmin />}
         </div>
       </section>
