@@ -4,8 +4,22 @@ import { clips, ranking } from "@/data/demo";
 import { Button } from "@/components/ui/button";
 import { Play, Upload, Trophy, Flame } from "lucide-react";
 import { compactNumber } from "@/lib/format";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { UploadClipModal } from "@/components/arena/UploadClipModal";
 
 const Arena = () => {
+  const [params, setParams] = useSearchParams();
+  const [uploadOpen, setUploadOpen] = useState(false);
+
+  useEffect(() => {
+    if (params.get("upload") === "1") {
+      setUploadOpen(true);
+      params.delete("upload");
+      setParams(params, { replace: true });
+    }
+  }, [params, setParams]);
+
   return (
     <SiteLayout>
       <SEO title="Arena de Jugadas — Comunidad PingPongHub Chile" description="Los mejores clips de tenis de mesa de la comunidad chilena. Sube tu jugada y compite por premios mensuales." />
@@ -16,7 +30,7 @@ const Arena = () => {
             <h1 className="font-display text-5xl italic md:text-7xl">ARENA DE <span className="text-brand">JUGADAS</span></h1>
             <p className="mt-3 max-w-xl text-sm text-muted-foreground">Top semanal, ranking nacional y los mejores puntos de jugadores chilenos.</p>
           </div>
-          <Button variant="hero" size="lg"><Upload className="size-4" /> Subir mi jugada</Button>
+          <Button variant="hero" size="lg" onClick={() => setUploadOpen(true)}><Upload className="size-4" /> Subir mi jugada</Button>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[1fr_320px]">
