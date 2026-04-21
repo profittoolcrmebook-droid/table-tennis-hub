@@ -78,6 +78,7 @@ const Arena = () => {
           </aside>
         </div>
       </section>
+      <UploadClipModal open={uploadOpen} onOpenChange={setUploadOpen} />
     </SiteLayout>
   );
 };
