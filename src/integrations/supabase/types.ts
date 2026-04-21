@@ -90,9 +90,14 @@ export type Database = {
         Row: {
           city: string | null
           created_at: string
+          description: string | null
+          first_name: string | null
           id: string
+          last_name: string | null
           likes: number | null
           player_handle: string
+          social_handle: string | null
+          social_network: string | null
           status: string
           thumbnail_url: string | null
           title: string
@@ -104,9 +109,14 @@ export type Database = {
         Insert: {
           city?: string | null
           created_at?: string
+          description?: string | null
+          first_name?: string | null
           id?: string
+          last_name?: string | null
           likes?: number | null
           player_handle: string
+          social_handle?: string | null
+          social_network?: string | null
           status?: string
           thumbnail_url?: string | null
           title: string
@@ -118,9 +128,14 @@ export type Database = {
         Update: {
           city?: string | null
           created_at?: string
+          description?: string | null
+          first_name?: string | null
           id?: string
+          last_name?: string | null
           likes?: number | null
           player_handle?: string
+          social_handle?: string | null
+          social_network?: string | null
           status?: string
           thumbnail_url?: string | null
           title?: string
