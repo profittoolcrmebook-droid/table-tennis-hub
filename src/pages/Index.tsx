@@ -6,6 +6,7 @@ import { ArenaSection } from "@/components/sections/ArenaSection";
 import { LiveAndTournamentsSection } from "@/components/sections/LiveAndTournamentsSection";
 import { GuidesSection } from "@/components/sections/GuidesSection";
 import { CommunityCTA } from "@/components/sections/CommunityCTA";
+import { RankingsSection } from "@/components/sections/RankingsSection";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       />
       <HeroSection />
       <FeaturedProducts />
+      <RankingsSection />
       <ArenaSection />
       <LiveAndTournamentsSection />
       <GuidesSection />
