@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { clips, ranking } from "@/data/demo";
 import { Button } from "@/components/ui/button";
-import { Trophy, Flame, Upload, ChevronRight, TrendingUp, TrendingDown, Minus, Play } from "lucide-react";
+import { Trophy, Flame, Upload, ChevronRight, Play } from "lucide-react";
 import { compactNumber } from "@/lib/format";
 
 export const ArenaSection = () => {
+  // El video destacado es el clip con más "fuegos" (likes)
+  const featured = [...clips].sort((a, b) => (b.likes || 0) - (a.likes || 0))[0];
+
   return (
     <section className="relative py-12 md:py-16">
       <div className="absolute inset-0 -z-10 bg-grid opacity-[0.04]" />
@@ -44,6 +47,52 @@ export const ArenaSection = () => {
 
           {/* Side panel */}
           <aside className="flex flex-col gap-5">
+            {/* Video destacado (más votado con 🔥) */}
+            {featured && (
+              <div className="group relative overflow-hidden rounded-2xl border-2 border-brand bg-card shadow-glow">
+                {/* Toke / badge brillante */}
+                <div className="absolute left-3 top-3 z-20 inline-flex items-center gap-1.5 rounded-full bg-brand px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-foreground shadow-glow animate-pulse">
+                  <Flame className="size-3 fill-current" /> Más votado
+                </div>
+                {/* Contador de fuegos */}
+                <div className="absolute right-3 top-3 z-20 inline-flex items-center gap-1 rounded-full bg-background/80 px-2.5 py-1 text-xs font-bebas backdrop-blur">
+                  <Flame className="size-3.5 text-brand fill-brand" />
+                  <span className="text-foreground">{compactNumber(featured.likes || 0)}</span>
+                </div>
+
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <img
+                    src={featured.thumbnail}
+                    alt={featured.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                  {/* Glow ring */}
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl ring-2 ring-brand/30 ring-offset-0" />
+                  {/* Play */}
+                  <div className="absolute inset-0 grid place-items-center">
+                    <button className="grid size-16 place-items-center rounded-full bg-brand text-brand-foreground shadow-glow transition-transform hover:scale-110">
+                      <Play className="size-7 fill-current" />
+                    </button>
+                  </div>
+                  {/* Footer info */}
+                  <div className="absolute inset-x-0 bottom-0 p-4">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-brand">{featured.player}</p>
+                    <p className="mt-1 line-clamp-2 text-sm font-bold leading-tight">{featured.title}</p>
+                    <p className="mt-1 text-[10px] text-muted-foreground">
+                      {compactNumber(featured.views)} vistas · {featured.city}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Botón fuego */}
+                <button className="flex w-full items-center justify-center gap-2 border-t border-brand/30 bg-brand/10 py-3 text-xs font-bold uppercase tracking-widest text-brand transition-colors hover:bg-brand/20">
+                  <Flame className="size-4 fill-current" /> Sumar fuego
+                </button>
+              </div>
+            )}
+
+            {/* Premio del mes (debajo) */}
             <div className="glass rounded-2xl p-5">
               <div className="mb-3 flex items-center gap-2">
                 <Trophy className="size-4 text-brand" />
@@ -55,25 +104,6 @@ export const ArenaSection = () => {
               <Button variant="hero" size="sm" className="mt-4 w-full text-xs">
                 <Upload className="size-3" /> Subir mi jugada
               </Button>
-            </div>
-
-            <div className="rounded-2xl border border-border bg-card p-5">
-              <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand">Ranking semanal Chile</p>
-              <ul className="space-y-2.5">
-                {ranking.map(r => (
-                  <li key={r.position} className="flex items-center gap-3 text-sm">
-                    <span className="font-display text-2xl italic text-muted-foreground/60 w-7">{r.position}</span>
-                    <div className="flex-1">
-                      <p className="font-medium leading-tight">{r.player}</p>
-                      <p className="text-[10px] text-muted-foreground">{r.city}</p>
-                    </div>
-                    <span className="font-bebas text-base text-calipso">{r.points}</span>
-                    {r.trend === "up" && <TrendingUp className="size-3.5 text-success" />}
-                    {r.trend === "down" && <TrendingDown className="size-3.5 text-destructive" />}
-                    {r.trend === "same" && <Minus className="size-3.5 text-muted-foreground" />}
-                  </li>
-                ))}
-              </ul>
             </div>
           </aside>
         </div>
